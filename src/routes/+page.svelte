@@ -1,2 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  console.log('Page');
+</script>
+
+
+<div>
+  <h1 class="header">Page</h1>
+  <p>This is a page.</p>
+</div>
+
+<style>
+  .header {
+    color: red;
+  }
+</style>
