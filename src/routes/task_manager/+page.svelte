@@ -10,5 +10,9 @@
 Some List
 </div>
 <AddListButton />
+<div class="flex-it flex-row">
 <TaskList />
+<TaskList />
+<TaskList />
+</div>
 </div>
