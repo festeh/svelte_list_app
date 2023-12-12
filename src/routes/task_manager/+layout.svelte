@@ -1,3 +1,3 @@
-<div class="p-20 text-white">
+<div class="flex-it p-10 h-full">
 	<slot />
 </div>

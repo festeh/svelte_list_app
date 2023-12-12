@@ -1,12 +1,3 @@
-<script>
-  console.log('Page');
-</script>
-
-
 <div>
-  <h1 class="header text-xl font-semibold uppercase underline">Page</h1>
-  <p>This is a page.</p>
+Go to task_manager page
 </div>
-
-<style>
-</style>
