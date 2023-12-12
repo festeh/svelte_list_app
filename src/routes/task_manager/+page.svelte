@@ -38,7 +38,7 @@
 	<AddListButton />
 	<div class="flex-it flex-row">
 		{#each taskList as item (item.id)}
-			<TaskList name={item.text} />
+			<TaskList name={item.text} items={item.items} />
 		{/each}
 	</div>
 </div>
