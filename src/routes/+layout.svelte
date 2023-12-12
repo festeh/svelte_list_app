@@ -1,6 +1,4 @@
 <script>import "../app.css";</script>
 
+<slot />
 
-<div> I am layout</div>
-
-<slot></slot>
