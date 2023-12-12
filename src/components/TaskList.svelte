@@ -7,6 +7,8 @@
 	const task1 = 'Task 1';
 	const task2 = 'Task 2';
 	const task3 = 'Task 3';
+
+
 </script>
 
 <div class="flex-it w-80 rounded-xl border-2 border-blue-100 bg-sky-400 m-2 my-0">
