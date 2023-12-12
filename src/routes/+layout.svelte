@@ -1,4 +1,4 @@
-<script>import "../app.pcss";</script>
+<script>import "../app.css";</script>
 
 
 <div> I am layout</div>

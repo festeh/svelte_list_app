@@ -4,12 +4,9 @@
 
 
 <div>
-  <h1 class="header">Page</h1>
+  <h1 class="header text-xl font-semibold uppercase underline">Page</h1>
   <p>This is a page.</p>
 </div>
 
 <style>
-  .header {
-    color: red;
-  }
 </style>
