@@ -4,18 +4,18 @@
 @tailwind utilities;
 
 body {
-  height: 100%;
-  /* font-size: 25px; */
-  margin: 0;
-  background-color: rgb(17,24,39);
-  /* background-color: rgb(17,255,39); */
+	height: 100%;
+	/* font-size: 25px; */
+	margin: 0;
+	background-color: rgb(17, 24, 39);
+	/* background-color: rgb(17,255,39); */
 }
 
 @layer components {
-  .flex-it {
-    border: 0 solid black;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-  }
+	.flex-it {
+		border: 0 solid black;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+	}
 }
