@@ -2,11 +2,11 @@ import { writable } from 'svelte/store';
 
 function createTasks() {
   const store = writable([]);
-  setTimeout(() => {
-    store.set([
-      { id: 1, title: 'Task 1' },
-      { id: 2, title: 'Task 2' }
-    ]);
+  let id = 0;
+  setInterval(() => {
+    store.update(tasks => {
+      return [...tasks, id++]
+    });
   }, 1000);
   return store;
   // return {
