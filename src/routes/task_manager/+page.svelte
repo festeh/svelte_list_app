@@ -3,19 +3,20 @@
 	import TaskList from "../../components/TaskList.svelte";
 
 	import { tasksStore } from "../../stores/tasks.js";
-
 </script>
 
-<div class="p-10 h-full">
+<div class="p-10 h-full flex-it">
 	<div class="text-white text-4xl mb-4">Some List</div>
 	<AddListButton />
-	<div class="flex-it flex-row">
-		{#each $tasksStore as item, listIdx (item.id)}
-			<TaskList
-				name={item.text}
-				items={item.items}
-        {listIdx}
-			/>
-		{/each}
+	<div class="flex-it h-full flex-1">
+		<div class="flex-it flex-row rounded-xl h-full">
+			{#each $tasksStore as item, listIdx (item.id)}
+				<TaskList
+					name={item.text}
+					items={item.items}
+					{listIdx}
+				/>
+			{/each}
+		</div>
 	</div>
 </div>

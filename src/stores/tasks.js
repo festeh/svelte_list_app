@@ -51,6 +51,15 @@ function createTasks() {
         });
         return taskList;
       });
+    },
+    addTask: (listIdx) => {
+      update((taskList) => {
+        taskList[listIdx].items.push({
+          id: new Date().toISOString(),
+          text: `New Task`
+        });
+        return taskList;
+      });
     }
   };
 }

@@ -8,9 +8,6 @@
 {#if isEditing}
 	<div class="flex-it">
 		<textarea bind:value></textarea>
-		<div>
-			{value}
-		</div>
 		<button
 			class="flex underline"
 			on:click={() => {
