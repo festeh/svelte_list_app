@@ -32,7 +32,7 @@ function createTasks() {
   ];
 
   const store = writable(initTaskList)
-  const {subscribe, update} = store;
+  const { subscribe, update } = store;
 
   return {
     subscribe,
@@ -41,7 +41,17 @@ function createTasks() {
       const taskIdx = list.items.findIndex((t) => t.id === task.id);
       list.items[taskIdx] = task;
       return taskList;
-    })
+    }),
+    addList: () => {
+      update((taskList) => {
+        taskList.push({
+          id: new Date().toISOString(),
+          text: `New List`,
+          items: []
+        });
+        return taskList;
+      });
+    }
   };
 }
 
