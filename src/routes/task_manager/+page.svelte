@@ -35,10 +35,17 @@
 	let _taskList = [];
 
 	import { tasksStore } from "../../stores/tasks.js";
+  import { onDestroy } from "svelte";
 
-	tasksStore.subscribe((value) => {
+	const unsub = tasksStore.subscribe((value) => {
 		_taskList = value;
 	});
+
+  onDestroy(() => {
+    console.log("unsubscribing");
+    unsub();
+  });
+
 </script>
 
 <div class="p-10 h-full">
