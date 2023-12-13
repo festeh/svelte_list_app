@@ -10,10 +10,9 @@
 	<AddListButton />
 	<div class="flex-it h-full flex-1">
 		<div class="flex-it flex-row rounded-xl h-full">
-			{#each $tasksStore as item, listIdx (item.id)}
+			{#each $tasksStore as list, listIdx (list.id)}
 				<TaskList
-					name={item.text}
-					items={item.items}
+					{list}
 					{listIdx}
 				/>
 			{/each}

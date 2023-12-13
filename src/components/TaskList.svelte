@@ -2,8 +2,7 @@
 	import TaskListHeader from "./TaskListHeader.svelte";
 	import TaskListItem from "./TaskListItem.svelte";
 
-	export let name = "";
-	export let items = [];
+	export let list;
 	export let listIdx = 0;
 
 	import { tasksStore } from "../stores/tasks.js";
@@ -15,18 +14,17 @@
 		on:dragover|preventDefault
 		on:drop={(event) => {
 			const data = JSON.parse(event.dataTransfer.getData("text/plain"));
-      console.log(data);
-      tasksStore.moveTask(data, listIdx);
+			tasksStore.moveTask(data, listIdx);
 		}}
 		class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full"
 	>
-		<TaskListHeader {name} />
+		<TaskListHeader name={list.text} />
 		<div class="p-2 overflow-x-hidden overflow-y-auto with-scrollbar">
-			{#each items as task, taskIdx (task.id)}
+			{#each list.items as task, taskIdx (task.id)}
 				<TaskListItem
 					{task}
 					{listIdx}
-          {taskIdx}
+					{taskIdx}
 				/>
 			{/each}
 		</div>
