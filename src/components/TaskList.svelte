@@ -10,13 +10,23 @@
 </script>
 
 <div class="flex-it w-80 h-full min-h-full rounded-xl m-2 my-0">
-	<div class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full">
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div
+		on:dragover|preventDefault
+		on:drop={(event) => {
+			const data = JSON.parse(event.dataTransfer.getData("text/plain"));
+      console.log(data);
+      tasksStore.moveTask(data, listIdx);
+		}}
+		class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full"
+	>
 		<TaskListHeader {name} />
 		<div class="p-2 overflow-x-hidden overflow-y-auto with-scrollbar">
-			{#each items as task (task.id)}
+			{#each items as task, taskIdx (task.id)}
 				<TaskListItem
 					{task}
 					{listIdx}
+          {taskIdx}
 				/>
 			{/each}
 		</div>
@@ -30,4 +40,3 @@
 		</button>
 	</div>
 </div>
-

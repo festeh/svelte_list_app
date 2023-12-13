@@ -5,10 +5,18 @@
 	import { tasksStore } from "../stores/tasks.js";
 
 	export let task;
-	export let listIdx = 0;
+	export let listIdx;
+  export let taskIdx;
 </script>
 
-<div class="flex-it border border-solid rounded-xl cursor-grab bg-sky-500 p-2 mb-2">
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
+	class="flex-it border border-solid rounded-xl cursor-grab bg-sky-500 p-2 mb-2"
+	draggable="true"
+  on:dragstart={(event) => {
+    event.dataTransfer.setData("text/plain", JSON.stringify({ task, listIdx, taskIdx }));
+  }}
+>
 	<Editable
 		value={task.text}
 		on:updated={(event) => {

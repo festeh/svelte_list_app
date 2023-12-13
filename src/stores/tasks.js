@@ -60,6 +60,13 @@ function createTasks() {
         });
         return taskList;
       });
+    },
+    moveTask: (taskInfo, toListIdx) => {
+      update((taskList) => {
+        taskList[taskInfo.listIdx].items.splice(taskInfo.taskIdx, 1);
+        taskList[toListIdx].items.push(taskInfo.task);
+        return taskList;
+      });
     }
   };
 }
