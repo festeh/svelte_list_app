@@ -10,11 +10,11 @@
 	<div class="text-white text-4xl mb-4">Some List</div>
 	<AddListButton />
 	<div class="flex-it flex-row">
-		{#each $tasksStore as item,idx (item.id)}
+		{#each $tasksStore as item, listIdx (item.id)}
 			<TaskList
 				name={item.text}
 				items={item.items}
-        {idx}
+        {listIdx}
 			/>
 		{/each}
 	</div>

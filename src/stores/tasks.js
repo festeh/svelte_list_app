@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 function createTasks() {
-  const taskList = [
+  const initTaskList = [
     {
       id: "l-1",
       text: "List 1",
@@ -31,8 +31,18 @@ function createTasks() {
     }
   ];
 
-  const store = writable(taskList)
-  return store;
+  const store = writable(initTaskList)
+  const {subscribe, update} = store;
+
+  return {
+    subscribe,
+    updateTask: (task, listIdx) => update((taskList) => {
+      const list = taskList[listIdx];
+      const taskIdx = list.items.findIndex((t) => t.id === task.id);
+      list.items[taskIdx] = task;
+      return taskList;
+    })
+  };
 }
 
 export const tasksStore = createTasks();
