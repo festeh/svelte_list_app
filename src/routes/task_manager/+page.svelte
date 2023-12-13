@@ -32,25 +32,13 @@
 		}
 	];
 
-	let _taskList = [];
-
 	import { tasksStore } from "../../stores/tasks.js";
-  import { onDestroy } from "svelte";
-
-	const unsub = tasksStore.subscribe((value) => {
-		_taskList = value;
-	});
-
-  onDestroy(() => {
-    console.log("unsubscribing");
-    unsub();
-  });
 
 </script>
 
 <div class="p-10 h-full">
 	<div class="text-white">
-		{JSON.stringify(_taskList)}
+		{JSON.stringify($tasksStore)}
 	</div>
 
 	<div class="text-white text-4xl mb-4">Some List</div>
