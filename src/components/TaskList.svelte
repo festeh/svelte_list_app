@@ -1,8 +1,8 @@
 <script context="module">
 	import { writable } from "svelte/store";
+	import { send, receive } from "../transitions/index.js";
 
 	let hoveredListId = writable(null);
-	import { send, receive } from "../transitions/index.js";
 </script>
 
 <script>
@@ -31,7 +31,10 @@
 		class:hovered={list.id === $hoveredListId}
 		class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full"
 	>
-		<TaskListHeader name={list.text} {listIdx}/>
+		<TaskListHeader
+			name={list.text}
+			{listIdx}
+		/>
 		<div class="p-2 overflow-x-hidden overflow-y-auto with-scrollbar">
 			{#each list.items as task, taskIdx (task.id)}
 				<div

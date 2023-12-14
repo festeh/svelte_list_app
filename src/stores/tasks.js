@@ -83,6 +83,12 @@ function createTasks() {
         return taskList;
       });
     },
+    updateListName: (listIdx, name) => {
+      update((taskList) => {
+        taskList[listIdx].text = name;
+        return taskList;
+      });
+    }
   };
 }
 
