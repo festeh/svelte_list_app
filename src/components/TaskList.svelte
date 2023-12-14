@@ -31,7 +31,7 @@
 		class:hovered={list.id === $hoveredListId}
 		class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full"
 	>
-		<TaskListHeader name={list.text} />
+		<TaskListHeader name={list.text} {listIdx}/>
 		<div class="p-2 overflow-x-hidden overflow-y-auto with-scrollbar">
 			{#each list.items as task, taskIdx (task.id)}
 				<div
