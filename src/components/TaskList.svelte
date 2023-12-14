@@ -1,9 +1,9 @@
 <script context="module">
-import {writable} from "svelte/store";
+	import { writable } from "svelte/store";
 
-let hoveredListId = writable(null);
+	let hoveredListId = writable(null);
+	import { send, receive } from "../transitions/index.js";
 </script>
-
 
 <script>
 	import TaskListHeader from "./TaskListHeader.svelte";
@@ -13,31 +13,40 @@ let hoveredListId = writable(null);
 	export let listIdx = 0;
 
 	import { tasksStore } from "../stores/tasks.js";
+	import { flip } from "svelte/animate";
 </script>
 
 <div class="flex-it w-80 h-full min-h-full rounded-xl m-2 my-0">
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		on:dragover|preventDefault
-    on:dragenter={() => {
-      hoveredListId.set(list.id);
-    }}
+		on:dragenter={() => {
+			hoveredListId.set(list.id);
+		}}
 		on:drop={(event) => {
 			const data = JSON.parse(event.dataTransfer.getData("text/plain"));
 			tasksStore.moveTask(data, listIdx);
-      hoveredListId.set(null);
+			hoveredListId.set(null);
 		}}
-    class:hovered={list.id === $hoveredListId}
+		class:hovered={list.id === $hoveredListId}
 		class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full"
 	>
 		<TaskListHeader name={list.text} />
 		<div class="p-2 overflow-x-hidden overflow-y-auto with-scrollbar">
 			{#each list.items as task, taskIdx (task.id)}
-				<TaskListItem
-					{task}
-					{listIdx}
-					{taskIdx}
-				/>
+				<div
+					in:receive={{ key: task.id }}
+					out:send={{ key: task.id }}
+					animate:flip={{
+						duration: 300
+					}}
+				>
+					<TaskListItem
+						{task}
+						{listIdx}
+						{taskIdx}
+					/>
+				</div>
 			{/each}
 		</div>
 		<button
