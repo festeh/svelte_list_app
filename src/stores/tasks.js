@@ -1,5 +1,7 @@
 import { writable } from 'svelte/store';
 
+const localStorageKey = 'taskList';
+
 function createTasks() {
   const initTaskList = [
     {
@@ -30,8 +32,9 @@ function createTasks() {
       ]
     }
   ];
-
-  const store = writable(initTaskList)
+  const storedTasks = localStorage.getItem(localStorageKey) ?
+    JSON.parse(localStorage.getItem(localStorageKey)) : initTaskList;
+  const store = writable(storedTasks);
   const { subscribe, update } = store;
 
   return {
@@ -72,3 +75,8 @@ function createTasks() {
 }
 
 export const tasksStore = createTasks();
+
+tasksStore.subscribe((taskList) => {
+  localStorage.setItem(localStorageKey,
+    JSON.stringify(taskList));
+})
