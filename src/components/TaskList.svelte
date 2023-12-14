@@ -1,3 +1,10 @@
+<script context="module">
+import {writable} from "svelte/store";
+
+let hoveredListId = writable(null);
+</script>
+
+
 <script>
 	import TaskListHeader from "./TaskListHeader.svelte";
 	import TaskListItem from "./TaskListItem.svelte";
@@ -12,10 +19,15 @@
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		on:dragover|preventDefault
+    on:dragenter={() => {
+      hoveredListId.set(list.id);
+    }}
 		on:drop={(event) => {
 			const data = JSON.parse(event.dataTransfer.getData("text/plain"));
 			tasksStore.moveTask(data, listIdx);
+      hoveredListId.set(null);
 		}}
+    class:hovered={list.id === $hoveredListId}
 		class="bg-sky-500 rounded-xl border-2 border-blue-300 flex-it max-h-full"
 	>
 		<TaskListHeader name={list.text} />
@@ -38,3 +50,9 @@
 		</button>
 	</div>
 </div>
+
+<style>
+	.hovered {
+		@apply border-2 border-rose-500;
+	}
+</style>
