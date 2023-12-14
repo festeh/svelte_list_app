@@ -70,6 +70,12 @@ function createTasks() {
         taskList[toListIdx].items.push(taskInfo.task);
         return taskList;
       });
+    },
+    removeTask: (listIdx, taskIdx) => {
+      update((taskList) => {
+        taskList[listIdx].items.splice(taskIdx, 1);
+        return taskList;
+      });
     }
   };
 }

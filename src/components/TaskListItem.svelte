@@ -6,17 +6,16 @@
 
 	export let task;
 	export let listIdx;
-  export let taskIdx;
-
+	export let taskIdx;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	class="flex-it border border-solid rounded-xl cursor-grab bg-sky-500 p-2 mb-2"
 	draggable="true"
-  on:dragstart={(event) => {
-    event.dataTransfer.setData("text/plain", JSON.stringify({ task, listIdx, taskIdx }));
-  }}
+	on:dragstart={(event) => {
+		event.dataTransfer.setData("text/plain", JSON.stringify({ task, listIdx, taskIdx }));
+	}}
 >
 	<Editable
 		value={task.text}
@@ -35,7 +34,13 @@
 		<div class="flex-it flex-row items-start">
 			<div class="flex flex-1">{task.text}</div>
 			<div class="flex items-center hover:text-red-600">
-				<TrashBin />
+				<button
+					on:click|stopPropagation={() => {
+						tasksStore.removeTask(listIdx, taskIdx);
+					}}
+				>
+					<TrashBin />
+				</button>
 			</div>
 		</div>
 	</Editable>
