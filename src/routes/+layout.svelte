@@ -2,6 +2,8 @@
 	import "../app.css";
 	import Sidebar from "../components/Sidebar.svelte";
 	import Trends from "../components/Trends.svelte";
+
+  export let data;
 </script>
 
 <div class="flex-it flex-row text-white w-full h-full justify-center">
@@ -12,6 +14,6 @@
 		<slot />
 	</div>
 	<div class="w-2/12">
-		<Trends />
+		<Trends trends={data.trends}/>
 	</div>
 </div>
