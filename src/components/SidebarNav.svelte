@@ -13,7 +13,7 @@
 			icon: TiHomeOutline
 		},
 		{
-			href: "/",
+			href: "/profile",
 			text: "Profile",
 			icon: TiGroupOutline
 		},
