@@ -1,15 +1,15 @@
 <script>
+	import Profile from "./Profile.svelte";
 	import SidebarHeader from "./SidebarHeader.svelte";
 	import SidebarNav from "./SidebarNav.svelte";
 	import SidebarSend from "./SidebarSend.svelte";
 </script>
 
-<header>
-	<div class="flex flex-row items-end justify-center">
-		<div class="w-6/12">
+<div class="flex flex-row items-start justify-end mr-8 flex-grow">
+		<div class="flex flex-col h-full">
 			<SidebarHeader />
 			<SidebarNav />
 			<SidebarSend />
+			<Profile />
 		</div>
-	</div>
-</header>
+</div>
