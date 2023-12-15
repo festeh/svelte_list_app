@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  /* border: 1px solid blue; */
+  box-sizing: border-box;
+   }
+
 html {
   height: 100%;
 }
@@ -34,4 +39,10 @@ body {
     position: relative;
     z-index: 0;
   }
+}
+
+.icon {
+  width: 27px;
+  height: 27px;
+  display: flex;
 }
