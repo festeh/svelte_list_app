@@ -3,7 +3,7 @@
 	import Popup from "./Popup.svelte";
 </script>
 
-<div class="flex flex-col flex-grow justify-end items-end h-full mb-2 rounded-xl p-2">
+<div class="flex flex-col flex-grow justify-end items-end h-full rounded-xl p-2">
 	<Popup>
 		<div
 			class="flex flex-row justify-between w-full items-center p-2 rounded-2xl
