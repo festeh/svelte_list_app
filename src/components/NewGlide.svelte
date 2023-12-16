@@ -1,5 +1,15 @@
 <script>
 	import TiImageOutline from "svelte-icons/ti/TiImageOutline.svelte";
+	import { createEventDispatcher } from "svelte";
+	let dispatch = createEventDispatcher();
+
+	function newGlide() {
+		dispatch("newGlide", {
+			text: glideText
+		});
+	}
+
+	let glideText = "";
 </script>
 
 <div class="flex flex-row h-full py-2 px-8">
@@ -15,8 +25,9 @@
 			<textarea
 				class="w-full h-full text-white p-1 bg-gray-800 rounded-xl focus:outline-none
         focus:ring-0"
-        rows="1"
+				rows="1"
 				placeholder="What's on your mind?"
+				bind:value={glideText}
 			></textarea>
 		</div>
 		<div class="flex justify-between mt-3">
@@ -26,7 +37,9 @@
 				</div>
 			</div>
 			<div>
-				<button class="bg-blue-400 hover:bg-blue-500 rounded-xl p-2">Glide</button>
+				<button 
+        on:click={newGlide}
+        class="bg-blue-400 hover:bg-blue-500 rounded-xl p-2">Glide</button>
 			</div>
 		</div>
 	</div>
