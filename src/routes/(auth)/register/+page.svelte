@@ -1,5 +1,5 @@
 <div class="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-	<div class="font-bold text-4xl mb-4">
+	<div class="font-bold text-4xl mb-4 text-white">
 		<a href="/">Join the Glide</a>
 	</div>
 	<div class="max-w-md w-full space-y-8 bg-gray-50 rounded-2xl p-4">

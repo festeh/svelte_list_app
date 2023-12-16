@@ -1,8 +1,8 @@
 <script>
-	import AddListButton from "../../components/AddListButton.svelte";
-	import TaskList from "../../components/TaskList.svelte";
+	import AddListButton from "../../../components/AddListButton.svelte";
+	import TaskList from "../../../components/TaskList.svelte";
 
-	import { tasksStore } from "../../stores/tasks.js";
+	import { tasksStore } from "../../../stores/tasks.js";
 
   export let data;
 </script>
