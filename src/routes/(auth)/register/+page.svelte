@@ -123,6 +123,18 @@
 				</div>
 			</div>
 
+			<div class="text-sm">
+				<p class="text-gray-600">
+					Already registered?
+					<a
+						href="/login"
+						class="font-medium text-indigo-600 hover:text-indigo-500"
+					>
+						Log in
+					</a>
+				</p>
+			</div>
+
 			<div class="pb-8">
 				<button
 					type="submit"

@@ -1,5 +1,5 @@
 <div class="min-h-screen flex flex-col items-center justify-center">
-	<div class="text-3xl font-extrabold text-white">Let's Glide!</div>
+	<div class="text-4xl font-extrabold text-white">Let's Glide!</div>
 	<div class="mt-8 max-w-md w-full space-y-8 bg-gray-50 rounded-xl p-2">
 		<div>
 			<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Log in to your account</h2>
@@ -49,6 +49,18 @@
 						placeholder="Password"
 					/>
 				</div>
+			</div>
+
+			<div class="text-sm">
+				<p class="text-gray-600">
+					Don't have an account?
+					<a
+						href="/register"
+						class="font-medium text-indigo-600 hover:text-indigo-500"
+					>
+						Register here.
+					</a>
+				</p>
 			</div>
 
 			<div class="pb-6">
