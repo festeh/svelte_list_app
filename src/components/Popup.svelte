@@ -1,20 +1,13 @@
 <script>
 	import { beforeUpdate, onMount, afterUpdate, onDestroy } from "svelte";
+	import { clickOutside } from "../actions/click_outside.js";
 	let isOpen = false;
 	let popupContent;
 	let offset = 0;
 
 	function closePopup() {
-		console.log("closePopup");
 		isOpen = false;
 	}
-
-	onMount(() => {
-		addEventListener("click", closePopup);
-		return () => {
-			removeEventListener("click", closePopup);
-		};
-	});
 
 	afterUpdate(() => {
 		let height = popupContent.clientHeight;
@@ -34,15 +27,14 @@
 	<div
 		class="
   flex text-white
-  hover:bg-gray-800
-  bg-gray-700
+  hover:bg-gray-800 bg-gray-700
   rounded-lg
   fixed
-  text-xl
-  text-bold
+  text-xl text-bold
   p-2
   "
 		style="bottom: {offset}; width: 154px"
+		use:clickOutside={closePopup}
 	>
 		Logout
 	</div>
