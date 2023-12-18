@@ -1,5 +1,8 @@
 <script>
+	import AuthContext from "../contexts/AuthContext.svelte";
 	import "../app.css";
 </script>
 
-<slot />
+<AuthContext>
+	<slot />
+</AuthContext>

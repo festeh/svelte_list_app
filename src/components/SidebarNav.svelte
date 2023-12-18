@@ -18,7 +18,7 @@
 			icon: TiGroupOutline
 		},
 		{
-			href: "/",
+			href: "/register",
 			text: "More",
 			icon: TiCogOutline
 		},
