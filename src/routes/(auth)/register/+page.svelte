@@ -1,3 +1,29 @@
+<script>
+	let fullName = "";
+	let nickname = "";
+	let email = "";
+	let avatar = "";
+	let password = "";
+	let passwordConfirmation = "";
+
+	function submit() {
+		alert(
+			"fullName: " +
+				fullName +
+				" nickname: " +
+				nickname +
+				" email: " +
+				email +
+				" avatar: " +
+				avatar +
+				" password: " +
+				password +
+				" passwordConfirmation: " +
+				passwordConfirmation
+		);
+	}
+</script>
+
 <div class="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 	<div class="font-bold text-4xl mb-4 text-white">
 		<a href="/">Join the Glide</a>
@@ -27,6 +53,7 @@
 						Full Name
 					</label>
 					<input
+						bind:value={fullName}
 						id="full-name"
 						name="full-name"
 						type="text"
@@ -44,6 +71,7 @@
 						Nickname
 					</label>
 					<input
+						bind:value={nickname}
 						id="nickname"
 						name="nickname"
 						type="text"
@@ -61,6 +89,7 @@
 						Email address
 					</label>
 					<input
+						bind:value={email}
 						id="email-address"
 						name="email"
 						type="email"
@@ -78,10 +107,10 @@
 						Avatar
 					</label>
 					<input
+						bind:value={avatar}
 						id="avatar"
 						name="avatar"
 						type="text"
-						autocomplete="avatar"
 						required
 						class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
 						placeholder="Avatar"
@@ -95,6 +124,7 @@
 						Password
 					</label>
 					<input
+						bind:value={password}
 						id="password"
 						name="password"
 						type="password"
@@ -112,6 +142,7 @@
 						Password Confirmation
 					</label>
 					<input
+						bind:value={passwordConfirmation}
 						id="password-confirmation"
 						name="password-confirmation"
 						type="password"
@@ -137,6 +168,7 @@
 
 			<div class="pb-8">
 				<button
+          on:click={submit}
 					type="submit"
 					class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 				>
